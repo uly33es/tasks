@@ -55,10 +55,16 @@ function func($a, $b) {
 }
 function func1($a, $b) {
     return ($a != $b);
-}*/
+}
 //6 задача
 function second($c) {
     $day = $c / 86400;
     echo $day . " суток";
 }
-second(60);
+second(60);*/
+function year($param) {
+    echo $param % 4 === 0
+        ? "Високосный"
+        : "Не високосный";
+}
+year(2024);
