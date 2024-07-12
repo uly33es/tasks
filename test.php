@@ -38,7 +38,7 @@ function func($num1, $num2) {
     $result = ($num1 > 0 and $num2 > 0)?($num1 * $num2):($num1 - $num2);
     echo $result;
 }
-echo func(3, 4);*/
+echo func(3, 4);
 function check_array ($arr) {
     $lenght = count($arr);
     for ($i = 0; $i <= $lenght; $i++){
@@ -49,3 +49,16 @@ function check_array ($arr) {
     }
 }
 $res = check_array([1, 5, 4, 6, 7, 11]);
+
+function func($a, $b) {
+    return ($a === $b);
+}
+function func1($a, $b) {
+    return ($a != $b);
+}*/
+//6 задача
+function second($c) {
+    $day = $c / 86400;
+    echo $day . " суток";
+}
+second(60);
