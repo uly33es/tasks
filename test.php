@@ -11,3 +11,14 @@ $param1 = 1;
 $param2 = 2;
 $param3 = 3;
 //summ1($param1, $param2, $param3);
+/*function summ2($num) {
+    return $num * $num * $num;
+}
+$res = summ2(3);
+echo $res;*/
+
+function summ3 ($num) {
+    return $num * $num * $num;
+}
+$res = summ3(2) + summ3(3);
+echo $res;
