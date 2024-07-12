@@ -33,9 +33,19 @@ function num($a) {
         echo "---";
         }
 }
-num (60);*/
+num (60);
 function func($num1, $num2) {
     $result = ($num1 > 0 and $num2 > 0)?($num1 * $num2):($num1 - $num2);
     echo $result;
 }
-echo func(3, 4);
+echo func(3, 4);*/
+function check_array ($arr) {
+    $lenght = count($arr);
+    for ($i = 0; $i <= $lenght; $i++){
+        $element = $arr[$i];
+        if ($element % 2 == 0) {
+            echo $arr[$i] . "\n";
+        }
+    }
+}
+$res = check_array([1, 5, 4, 6, 7, 11]);
