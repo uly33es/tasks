@@ -61,10 +61,11 @@ function second($c) {
     $day = $c / 86400;
     echo $day . " суток";
 }
-second(60);*/
+second(60);
+//7
 function year($param) {
     echo $param % 4 === 0
         ? "Високосный"
         : "Не високосный";
 }
-year(2024);
+year(2024);*/
