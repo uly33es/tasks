@@ -1,4 +1,5 @@
 <?php
+// 4 задача
 function Days_if_the_week($day) {
     switch ($day) {
         case 1:
@@ -28,3 +29,6 @@ function Days_if_the_week($day) {
     }
 }
 Days_if_the_week(5);
+
+//
+echo date("l");

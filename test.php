@@ -69,3 +69,10 @@ function year($param) {
         : "Не високосный";
 }
 year(2024);*/
+// задача 8
+function Number($a) {
+//    echo ($a % 1 == 0 and $a % $a == 0)
+//        ? "Простое"
+//        : "Составное";
+}
+Number(4);
