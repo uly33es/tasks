@@ -1,28 +1,7 @@
 <?php
-class Car
+class Employee
 {
-    /*
-     * $color - цвет автомобиля
-     * $furl - кол-во топлива*/
-    public $color;
-    public $fuel;
-
-    //Команда ехать
-    public function go()
-    {
-
-    }
-    //Команда поварачивать
-    public function turn()
-    {
-
-    }
-    //Команда остановиться
-    public function stop()
-    {
-
-    }
+    public $name;
+    public $age;
+    public $salary;
 }
-$myCar = new Car();
-$myCar->color = "red";
-$myCar->fuel = 50;
