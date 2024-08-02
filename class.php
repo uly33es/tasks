@@ -1,5 +1,5 @@
 <?php
-class Employee
+/*class Employee
 {
     public $name;
     public $age;
@@ -39,10 +39,32 @@ $user2->name = "eric";
 $user2->age = 26;
 $user2->salary = 2000;
 
-/*echo $user1->getName();
+echo $user1->getName();
 echo $user1->getAge()."\n";
 echo $user1->getSalary() + $user2->getSalary()."\n";
-echo $user2->checkAge();*/
+echo $user2->checkAge();
 $user1->setAge(27);
 echo $user1->doubleSalary()."\n";
-echo $user1->age;
+echo $user1->age;*/
+
+class Rectangle
+{
+   public $widht;
+   public $length;
+
+   //Метод нахождения площади
+    public function getSquare()
+    {
+        return $this->widht * $this->length;
+    }
+    //Метод нахождения периметра
+    public function getPerimeter()
+    {
+        return ($this->widht + $this->length) * 2;
+    }
+}
+$param = new Rectangle();
+$param->length = 10;
+$param->widht = 2;
+echo $param->getSquare()."\n";
+echo $param->getPerimeter();
