@@ -68,6 +68,7 @@ $param->length = 10;
 $param->widht = 2;
 echo $param->getSquare()."\n";
 echo $param->getPerimeter();*/
+/*
 class User
 {
     public $name;
@@ -104,4 +105,23 @@ $user = new User();
 $user->setAge(30);
 echo $user->age."\n";
 $user->addAge(10);
-echo $user->age;
+echo $user->age;*/
+
+class Student
+{
+    public $name;
+    public $course;
+
+    public function transferToNextCours($course)
+    {
+        if ($this->isCourseCorrect($course)) {
+            return $this->course + 1;
+        }
+    }
+    private function isCourseCorrect() {
+        return $this->course >= 1 and $this->course <= 4;
+    }
+}
+$student = new Student();
+$student->course = 2;
+echo $student->transferToNextCours(2);
