@@ -18,7 +18,16 @@ class Employee
     }
     public function checkAge()
     {
-        return ($this->age > 18)?"true":"false";
+        return ($this->age >= 18)?true:false;
+    }
+    public function setAge(int $age): void
+    {
+        if ($age >= 18) {
+            $this->age = $age;
+        }
+    }
+    public function doubleSalary(){
+        return $this->salary * 2;
     }
 }
 $user1 = new Employee();
@@ -30,7 +39,10 @@ $user2->name = "eric";
 $user2->age = 26;
 $user2->salary = 2000;
 
-echo $user1->getName();
+/*echo $user1->getName();
 echo $user1->getAge()."\n";
 echo $user1->getSalary() + $user2->getSalary()."\n";
-echo $user2->checkAge();
+echo $user2->checkAge();*/
+$user1->setAge(27);
+echo $user1->doubleSalary()."\n";
+echo $user1->age;
