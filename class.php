@@ -1,9 +1,9 @@
 <?php
 class Employee
 {
-    public $name;
-    public $age;
-    public $salary;
+    private $name;
+    private $age;
+    private $salary;
     /*    public function getName()
         {
             return $this->name;
@@ -55,15 +55,17 @@ class Employee
     }
 
 }
+
 $user = new Employee("eric", 25, 1000);
-echo $user->name."\n";
+
+/*echo $user->name."\n";
 echo $user->age."\n";
 echo $user->salary."\n";
 $user2 = new Employee("kyle", 30, 2000);
 echo $user2->name."\n";
 echo $user2->age."\n";
 echo $user2->salary."\n";
-echo $user->salary + $user2->salary;
+echo $user->salary + $user2->salary;*/
 /*class Rectangle
 {
    public $widht;
