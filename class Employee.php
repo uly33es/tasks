@@ -1,5 +1,5 @@
 <?php
-class Employee
+/*class Employee
 {
     private $name;
     private $age;
@@ -49,4 +49,46 @@ echo $User->getName()."\n";
 echo $User->setName("Angelina")."\n";
 $User->setAge(101);
 echo $User->getAge()."\n";
-echo $User->getSalary();
+echo $User->getSalary();*/
+class Employee
+{
+    private $name;
+    private $surname;
+    private $salary;
+
+    public function __construct($name, $surname, $salary)
+    {
+        $this->name = $name;
+        $this->surname = $surname;
+        $this->salary = $salary;
+    }
+    //Геттер для имени:
+    public function getName()
+    {
+        return $this->name;
+    }
+    //Геттер для фамилии:
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+    //Гетер для зп:
+    public function getSalary()
+    {
+        return $this->salary;
+    }
+    //Сеттер для зп:
+    public function setSelary($salary)
+    {
+        $this->salary = $salary;
+    }
+}
+$user = new Employee("admin","admin", 100000);
+//Имя можно только читать, но нельзя поменять:
+echo $user->getName()."\n";
+//Фамилию можно только читать, но нельзя поменять:
+echo $user->getSurname()."\n";
+//Зарплату можно читать и изменять
+echo $user->getSalary()."\n";
+$user->setSelary(100);
+echo $user->getSalary();
