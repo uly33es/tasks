@@ -19,4 +19,4 @@ $city = [
 foreach ($city as $citys) {
     echo $citys->name . '-' . $citys->population ."\n";
 }
-//var_dump($city);
+var_dump($city);
