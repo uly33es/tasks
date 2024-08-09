@@ -31,12 +31,12 @@ class Employee extends User
     }
 
 }
-$employee = new Employee();
+/*$employee = new Employee();
 $employee->setName("Igor");
 $employee->setSalary(100000);
 $employee->increaseRevenue(100);
 echo $employee->getName()."-".$employee->getSalary()."\n";
-
+*/
 class Student
 {
     private $scholarship; //стипендия
