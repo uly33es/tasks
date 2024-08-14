@@ -44,7 +44,7 @@ class FiguresCollection
         return $sum;
     }*/
 }
-$figuresCollection = new FiguresCollection;
+$figuresCollection = new FiguresCollection();
 //$figuresCollection->addFigure(new Quadrate(2));
-$figuresCollection->addFigure(new Rectangle(2, 3));
-$figuresCollection->addFigure(new Rectangle(3,4));
+$figuresCollection->add(new Rectangle(2, 3));
+$figuresCollection->add(new Rectangle(3,4));
