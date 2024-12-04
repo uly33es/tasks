@@ -1,178 +1,146 @@
 <?php
+class Employee
+{
+    private $name;
+    private $age;
+    private $salary;
+    /*    public function getName()
+        {
+            return $this->name;
+        }
+        public function getAge()
+        {
+            return $this->age;
+        }
+        public function getSalary()
+        {
+            return $this->salary;
+        }
+        public function checkAge()
+        {
+            return ($this->age >= 18)?true:false;
+        }
+        public function setAge(int $age): void
+        {
+            if ($age >= 18) {
+                $this->age = $age;
+            }
+        }
+        public function doubleSalary(){
+            return $this->salary * 2;
+        }
+    }
+    $user1 = new Employee();
+    $user1->name = "john";
+    $user1->age = 25;
+    $user1->salary = 1000;
+    $user2 = new Employee();
+    $user2->name = "eric";
+    $user2->age = 26;
+    $user2->salary = 2000;
+
+    echo $user1->getName();
+    echo $user1->getAge()."\n";
+    echo $user1->getSalary() + $user2->getSalary()."\n";
+    echo $user2->checkAge();
+    $user1->setAge(27);
+    echo $user1->doubleSalary()."\n";
+    echo $user1->age;*/
+
+    public function __construct($name, $age, $salary)
+    {
+        $this -> name = $name;
+        $this -> age = $age;
+        $this -> salary = $salary;
+    }
+
+}
+
+$user = new Employee("eric", 25, 1000);
+
+/*echo $user->name."\n";
+echo $user->age."\n";
+echo $user->salary."\n";
+$user2 = new Employee("kyle", 30, 2000);
+echo $user2->name."\n";
+echo $user2->age."\n";
+echo $user2->salary."\n";
+echo $user->salary + $user2->salary;*/
+/*class Rectangle
+{
+   public $widht;
+   public $length;
+
+   //Метод нахождения площади
+    public function getSquare()
+    {
+        return $this->widht * $this->length;
+    }
+    //Метод нахождения периметра
+    public function getPerimeter()
+    {
+        return ($this->widht + $this->length) * 2;
+    }
+}
+$param = new Rectangle();
+$param->length = 10;
+$param->widht = 2;
+echo $param->getSquare()."\n";
+echo $param->getPerimeter();*/
 /*
- * Класс товар - Product
- */
-class Product {
-    /*
-     * Объявление свойтсва
-     * Цена - $price
-     * Кол-во - $quantity
-     * Вес - $weight
-     * Наименование - $name
-     * Тип товара - $type
-     */
-    public $price;
-    public $quantity;
-    public $weight;
+class User
+{
     public $name;
-    public $type;
+    public $age;
 
-    public function __construct($price, $quantity, $weight, $name, $type)
+    //Метод проверки возраста
+    public function isAgeCorrect($age)
     {
-        $this->price = $price;
-        $this->quantity = $quantity;
-        $this->weight = $weight;
-        $this->name = $name;
-        $this->type = $type;
-    }
-    public function getData(): array
-    {
-        return [
-            'price' => $this->price,
-            'name' => $this->name,
-            'type' => $this->type
-        ];
-    }
-
-    public static function getDataFromProducts(array $products): array
-    {
-        $result = [];
-        foreach ($products as $product) {
-            if ($product instanceof Product) {
-                $result[] = [$product->getData(), 'amount' => 1];
-            } elseif (
-                is_array($product)
-                && ($productObject = $product[array_key_first($product)])
-                && $productObject instanceof Product
-            ) {
-                $result = [$productObject->getData(), 'amount' => $product['amount']];
-            }
-        }
-        return $result;
-    }
-}
-
-/*
- * Класс Покупатель - Buyer
- */
-class Buyer {
-    /*
-     * Объявление свойтсва
-     * Баланс - $balance
-     * Текущая корзина - $cart
-     * История купленных товаров - $story
-     */
-    private float $balance;
-    public array $cart = [];
-    private array $buyHistory = [];
-    /*
-     * Объявление метода
-     * Добавление товара в корзину - addingProduct
-     * Покупка товара из корзины - buyProduct
-     * Получение истории покупок - historyPurchase
-     * Получение баланс - getBalance0
-     */
-
-    /**
-     * Добавление товара в корзину.
-     *
-     * @param Product $product товар.
-     *
-     * @return void
-     */
-    public function addingProductToCart(Product $product, int $amount = 1): void
-    {
-        for ($i = 1; $i <= $amount; $i++) {
-            foreach ($this->cart as $key => $cartProductArray) {
-                $cartProduct = !is_array($cartProductArray)
-                    ?: $cartProductArray[array_key_first($cartProductArray)];
-                if (
-                    $cartProduct->name === $product->name
-                    && isset($this->cart[$key]['amount'])
-                ) {
-                    $this->cart[$key]['amount'] += 1;
-                    return;
-                }
-            }
-            $this->cart[] = [$product, 'amount' => 1];
-            return;
-        }
-    }
-
-    /**
-     * @param $balance
-     */
-    public function __construct($balance)
-    {
-        $this->balance = $balance;
-    }
-
-    /**
-     * @return bool
-     */
-    public function buyProductsFromCart(): bool
-    {
-        if (!empty($this->cart)) {
-            foreach ($this->cart as $key => $productArray) {
-                $product = $productArray[array_key_first($productArray)];
-                if ($this->balance - $product->price >= 0) {
-                    if ($product->quantity > 0) {
-                        $this->balance -= isset($productArray['amount'])
-                            ? $product->price * $productArray['amount']
-                            : $productArray->price;
-                        $this->buyHistory[] = $productArray;
-                        $product->quantity -= 1;
-                    } else {
-                        echo "Товар $product->name закончился";
-                    }
-                    unset($this->cart[$key]);
-                } else {
-                    echo "Недостаточно средств для совершения операции.";
-                    return false;
-                }
-            }
+        if ($age >= 18 and $age <= 60) {
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
-
-    /**
-     * @return array
-     */
-    public function historyPurchase(): array
+    //Метод для изменения возроста User
+    public function setAge($age)
     {
-        return Product::getDataFromProducts($this->buyHistory);
+        //Проверка возроста на корректность
+        if ($this->isAgeCorrect($age)) {
+            $this->age = $age;
+        }
     }
-
-    /**
-     * @return array
-     */
-    public function showCart(): array
+    //Метод для уменьшения возроста
+    public function addAge($years)
     {
-        return Product::getDataFromProducts($this->cart);
-    }
+        $newAge = $this->age - $years;
 
-    /**
-     * Получить баланс.
-     *
-     * @return float
-     */
-    public function getBalance(): float
-    {
-        return $this->balance;
+        if ($this->isAgeCorrect($newAge)) {
+            $this->age = $newAge;
+        }
     }
 }
+$user = new User();
+$user->setAge(30);
+echo $user->age."\n";
+$user->addAge(10);
+echo $user->age;*/
+/*
+class Student
+{
+    public $name;
+    public $course;
 
-$carrot = new Product(100, 69, 101, 'Морковь', 'Овощ');
-$lemon = new Product(50, 1, 50, 'Лимон', 'Фрукт');
-$buyer = new Buyer(502);
-echo "Баланс: " . $buyer->getBalance();
-$buyer->addingProductToCart($carrot, 2);
-echo "<pre>";
-echo "Корзина: " . var_dump($buyer->showCart());
-var_dump($buyer->buyProductsFromCart());
-
-echo "Баланс: " . $buyer->getBalance();
-
-
-echo "</pre>";
+    public function transferToNextCours($course)
+    {
+        if ($this->isCourseCorrect($course)) {
+            return $this->course + 1;
+        }
+    }
+    private function isCourseCorrect() {
+        return $this->course >= 1 and $this->course <= 4;
+    }
+}
+$student = new Student();
+$student->course = 2;
+echo $student->transferToNextCours(2);*/
